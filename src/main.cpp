@@ -2,6 +2,7 @@
 
 int main(int argc, char* argv[])
 {
+  // TODO: Add a gui feature for the user to set these conditions during runtime
   DPMath::DPendulumInitConditions conditions;
   conditions.angle1 = PI;
   conditions.angle2 = PI / 2;
