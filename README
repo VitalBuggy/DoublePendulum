@@ -1,0 +1,3 @@
+# Simulating a Double Pendulum
+
+For the last few projects I have done, I have used raylib quite a bit. This is in order to sort of prepare myself for OpenGL. Since this project's core is more based around physics, the math isn't that hard to implement. This is going to be a way of me improving my knowledge of more abstract concepts in graphical programming, rather than implementing physics into code.
