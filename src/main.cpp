@@ -2,7 +2,7 @@
 
 int main(int argc, char* argv[])
 {
-  DPendulumInitConditions conditions;
+  DPMath::DPendulumInitConditions conditions;
   conditions.angle1 = PI;
   conditions.angle2 = PI / 2;
   conditions.angle1_dp = 0;
