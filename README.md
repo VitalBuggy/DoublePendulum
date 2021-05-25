@@ -6,12 +6,8 @@ For the last few projects I have done, I have used raylib quite a bit. This is i
 
 To get the boring stuff out of the way first, the movement of a double pendulum is governed by these two equations
 
-$$
-\theta_1'' = \frac{-g(2m_1 + m_2) sin \theta_1 - m_2gsin(\theta_1 - 2\theta_2) - 2sin(\theta_1 - \theta_2)m_2(\theta_2'^2L_2 + \theta_1'^2L_1cos(\theta_1 - \theta_2))}{L_1(2m_1 + m_2 - m_2 cos(2\theta_1 - 2\theta_2))}
-$$
-$$
-\theta_2'' = \frac{2sin(\theta_1 - \theta_2)(\theta_1'^2L_1(m_1+m_2) + g(m_1 + m_2)cos \theta_1 + \theta_2'^2L_2m_2cos(\theta_1 - \theta_2))}{L_2(2m_1 + m_2 - m_2 cos(2\theta_1 - 2\theta_2))}
-$$
+![theta1](https://github.com/VitalBuggy/DoublePendulum/blob/master/images/theta1.svg)
+![theta2](https://github.com/VitalBuggy/DoublePendulum/blob/master/images/theta2.svg)
 
 where $\theta$ is the angle of the bearing on each rod, meaning that $\theta'$ is the first time derivative and $\theta''$ is the second time derivative.
 
