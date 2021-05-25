@@ -9,7 +9,7 @@ To get the boring stuff out of the way first, the movement of a double pendulum 
 ![theta1](https://raw.githubusercontent.com/VitalBuggy/DoublePendulum/master/images/theta1.svg)
 ![theta2](https://raw.githubusercontent.com/VitalBuggy/DoublePendulum/master/images/theta2.svg)
 
-where $\theta$ is the angle of the bearing on each rod, meaning that $\theta'$ is the first time derivative and $\theta''$ is the second time derivative.
+where _θ_ is the angle of the bearing on each rod, meaning that _θ'_ is the first time derivative and $\theta''$ is the second time derivative.
 
 The given equations are used to calculate the angular accelerations of the masses as a function of the angular velocities, masses and lengths of the rods.
 
