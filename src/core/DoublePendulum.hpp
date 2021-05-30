@@ -1,11 +1,11 @@
 #ifndef _DPENDULUMHPP
 #define _DPENDULUMHPP
 
-#define RAYGUI_IMPLEMENTATION
+#define RAYGUI_STATIC
 
 #include "./DPendulumMath.h"
-#include <raygui.h>
 #include <raylib-cpp.hpp>
+#include "../gui/MainGui.hpp"
 
 class DoublePendulum {
 public:
@@ -17,6 +17,7 @@ public:
     this->init_conditions = new DPMath::DPendulumInitConditions(conditions);
     this->window = new raylib::Window(swidth, sheight, "Double Pendulum");
     this->is_paused = true;
+    this->gui = new Gui(50, 50, is_paused);
   }
 
   void run(int fps = 60) {
@@ -24,7 +25,6 @@ public:
     this->setup(fps);
 
     while (!this->window->ShouldClose()) {
-      this->processEvents();
       if (!is_paused)
         this->update();
       this->render();
@@ -54,16 +54,13 @@ private:
 
     ClearBackground(RAYWHITE);
 
+    this->renderGui();
+
     EndDrawing();
   }
 
-  void processEvents() {
-    bool btn = GuiButton((Rectangle){20, 20, 100, 80}, "Toggle Simulation");
-    if (btn && this->is_paused == true) {
-      this->is_paused = false;
-    } else if (btn && this->is_paused == false) {
-      this->is_paused = true;
-    }
+  void renderGui() {
+    this->gui->render();
   }
 
   void setup(int fps) { SetTargetFPS(fps); }
@@ -74,6 +71,7 @@ private:
   double x1, x2, y1, y2;
   bool is_paused;
   raylib::Window *window;
+  Gui *gui;
 };
 
 #endif // DoublePendulum.hpp
