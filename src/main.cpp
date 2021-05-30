@@ -5,7 +5,7 @@ int main(int argc, char* argv[])
   // TODO: Add a gui feature for the user to set these conditions during runtime
   DPMath::DPendulumInitConditions conditions;
   conditions.angle1 = PI;
-  conditions.angle2 = PI / 2;
+  conditions.angle2 = PI;
   conditions.angle1_dp = 0;
   conditions.angle2_dp = 0;
   conditions.g = 1;
@@ -13,6 +13,6 @@ int main(int argc, char* argv[])
   conditions.length2 = 200;
   conditions.mass1 = 20;
   conditions.mass2 = 20;
-  DoublePendulum dp(1000, 1000, conditions);
+  DoublePendulum dp(800, 1000, conditions);
   dp.run(60);
 }
