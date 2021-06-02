@@ -1,11 +1,16 @@
 #ifndef _DPENDULUMHPP
 #define _DPENDULUMHPP
 
+<<<<<<< HEAD
 #define RAYGUI_STATIC
 
 #include "./DPendulumMath.h"
 #include <raylib-cpp.hpp>
 #include "../gui/MainGui.hpp"
+=======
+#include "./DPendulumMath.h"
+#include <raylib-cpp.hpp>
+>>>>>>> master
 
 class DoublePendulum {
 public:
@@ -42,15 +47,12 @@ private:
   void render() {
     BeginDrawing();
 
-    x1 = (this->init_conditions->length1 * sin(this->init_conditions->angle1)) + this->origin_x;
-    y1 = (this->init_conditions->length1 * cos(this->init_conditions->angle1)) + this->origin_y;
-    x2 = (this->init_conditions->length2 * sin(this->init_conditions->angle2)) + x1;
-    y2 = (this->init_conditions->length2 * cos(this->init_conditions->angle2)) + y1;
+    DPMath::MassPositions mass_positions = DPMath::get_mass_positions(this->init_conditions, this->origin_x, this->origin_y);
 
-    DrawLine(this->origin_x, this->origin_y, x1, y1, BLACK);
-    DrawCircle(x1, y1, this->init_conditions->mass1, BLACK);
-    DrawLine(x1, y1, x2, y2, BLACK);
-    DrawCircle(x2, y2, this->init_conditions->mass2, BLACK);
+    DrawLine(this->origin_x, this->origin_y, mass_positions.x1, mass_positions.y1, BLACK);
+    DrawCircle(mass_positions.x1, mass_positions.y1, this->init_conditions->mass1, BLACK);
+    DrawLine(mass_positions.x1, mass_positions.y1, mass_positions.x2, mass_positions.y2, BLACK);
+    DrawCircle(mass_positions.x2, mass_positions.y2, this->init_conditions->mass2, BLACK);
 
     ClearBackground(RAYWHITE);
 
