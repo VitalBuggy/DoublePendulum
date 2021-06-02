@@ -1,16 +1,11 @@
 #ifndef _DPENDULUMHPP
 #define _DPENDULUMHPP
 
-<<<<<<< HEAD
 #define RAYGUI_STATIC
 
 #include "./DPendulumMath.h"
 #include <raylib-cpp.hpp>
 #include "../gui/MainGui.hpp"
-=======
-#include "./DPendulumMath.h"
-#include <raylib-cpp.hpp>
->>>>>>> master
 
 class DoublePendulum {
 public:
