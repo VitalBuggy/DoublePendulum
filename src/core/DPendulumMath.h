@@ -10,6 +10,10 @@ struct DPendulumInitConditions {
   double length2, mass2, angle2, angle2_dp;
 };
 
+struct MassPositions {
+  double x1, y1, x2, y2;
+};
+
 inline std::pair<double, double> calculate_dv(DPendulumInitConditions *conditions) {
   double num1 = -(conditions->g) * (2 * (conditions->mass1) + (conditions->mass2)) * sin((conditions->angle1));
   double num2 = -(conditions->mass2) * (conditions->g) * sin((conditions->angle1) - 2 * (conditions->angle2));
@@ -26,6 +30,21 @@ inline std::pair<double, double> calculate_dv(DPendulumInitConditions *condition
   double a2_dv = (num1 * (num2 + num3 + num4)) / den;
 
   return {a1_dv, a2_dv};
+}
+
+MassPositions get_mass_positions(const DPendulumInitConditions *conditions, int origin_x = 0, int origin_y = 0) {
+  double x1 = (conditions->length1 * sin(conditions->angle1)) + origin_x;
+  double y1 = (conditions->length1 * cos(conditions->angle1)) + origin_y;
+  double x2 = (conditions->length2 * sin(conditions->angle2)) + x1;
+  double y2 = (conditions->length2 * cos(conditions->angle2)) + y1;
+
+  MassPositions ret;
+  ret.x1 = x1;
+  ret.y1 = y1;
+  ret.x2 = x2;
+  ret.y2 = y2;
+
+  return ret;
 }
 
 }; // namespace DPMath
